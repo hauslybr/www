@@ -1,0 +1,198 @@
+---
+const siteUrl = 'https://hauslybr.com';
+const title = 'Hausly CRM | CRM para corretores';
+const description =
+  'Hausly CRM organiza leads, visitas e carteira em um fluxo simples para corretores venderem mais com menos retrabalho.';
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href={siteUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Hausly CRM" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">CRM para Corretores</p>
+        <h1>Transforme leads em fechamentos sem planilhas e sem caos</h1>
+        <p class="subtitle">
+          O Hausly CRM centraliza funil, visitas, carteira de imoveis e
+          acompanhamento de proxima acao em um fluxo claro.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:contato@hauslybr.com"
+            >Falar com o time</a
+          >
+          <a class="btn btn-secondary" href="https://api.hauslybr.com/docs"
+            >Ver API Docs</a
+          >
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Funil objetivo</h2>
+          <p>
+            Acompanhe cada lead por etapa, sem perder timing de follow-up e com
+            visao clara das proximas acoes.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Visitas organizadas</h2>
+          <p>
+            Agenda integrada e historico por lead para reduzir no-show e acelerar
+            decisoes.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Carteira conectada</h2>
+          <p>
+            Relacione imoveis com interesses reais de cada contato e prepare o
+            terreno para match inteligente.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family:
+      "Avenir Next",
+      "Segoe UI",
+      sans-serif;
+    color: #0f172a;
+    background:
+      radial-gradient(1200px circle at 10% 10%, #dbeafe 0%, transparent 50%),
+      radial-gradient(900px circle at 90% 15%, #fde68a 0%, transparent 45%),
+      #f8fafc;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+
+  .hero {
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1d4ed8;
+    margin: 0 0 14px;
+  }
+
+  h1 {
+    margin: 0;
+    line-height: 1.08;
+    font-size: clamp(32px, 5vw, 56px);
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    margin: 20px 0 0;
+    font-size: clamp(18px, 2.2vw, 22px);
+    line-height: 1.5;
+    color: #334155;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .btn-primary {
+    background: #0f172a;
+    color: #fff;
+    box-shadow: 0 8px 24px rgb(15 23 42 / 20%);
+  }
+
+  .btn-secondary {
+    background: #fff;
+    border-color: #cbd5e1;
+    color: #0f172a;
+  }
+
+  .grid {
+    margin-top: 56px;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .card {
+    background: rgb(255 255 255 / 84%);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 20px;
+    backdrop-filter: blur(6px);
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .card p {
+    margin: 0;
+    color: #334155;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page {
+      padding: 56px 18px;
+    }
+  }
+</style>
