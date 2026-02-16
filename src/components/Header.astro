@@ -1,0 +1,116 @@
+---
+const navLinks = [
+  { label: 'Problema', href: '#problema' },
+  { label: 'Como funciona', href: '#como-funciona' },
+  { label: 'Preços', href: '#preco' },
+  { label: 'Quem faz', href: '#fundador' },
+  { label: 'FAQ', href: '#faq' },
+];
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__brand" href="#inicio" aria-label="Hausly CRM">
+      <img src="/hausly-logo-light.svg" alt="Hausly" class="header__logo" width="36" height="36" />
+      <span class="header__wordmark">Hausly</span>
+    </a>
+
+    <nav class="header__nav hide-mobile">
+      {navLinks.map((link) => (
+        <a href={link.href} class="header__link">{link.label}</a>
+      ))}
+    </nav>
+
+    <span class="header__coming-soon">Em breve nas lojas</span>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px) saturate(1.6);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6);
+    background: rgba(250, 249, 247, 0.82);
+    border-bottom: 1px solid var(--border-warm);
+    transition: box-shadow var(--duration-md) var(--ease-out);
+  }
+
+  .header:has(+ main .hero:not([data-scrolled])) {
+    box-shadow: none;
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    height: 72px;
+  }
+
+  .header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .header__logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .header__wordmark {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  .header__link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: color var(--duration-fast);
+    position: relative;
+  }
+
+  .header__link:hover {
+    color: var(--text-primary);
+  }
+
+  .header__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--amber);
+    border-radius: 1px;
+    transition: width var(--duration-md) var(--ease-out);
+  }
+
+  .header__link:hover::after {
+    width: 100%;
+  }
+
+  .header__coming-soon {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--amber);
+    padding: 6px 14px;
+    border: 1px solid rgba(221, 148, 41, 0.3);
+    border-radius: var(--radius-full);
+    background: var(--amber-glow);
+    white-space: nowrap;
+  }
+</style>

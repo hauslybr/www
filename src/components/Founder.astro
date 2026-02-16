@@ -1,0 +1,190 @@
+---
+
+---
+
+<section id="fundador" class="section founder noise">
+  <div class="container founder__grid">
+    <div class="founder__image-col reveal">
+      <div class="founder__image-frame">
+        <img
+          src="/founder-tavares.webp"
+          alt="Guilherme Tavares, fundador da GTech e criador da Hausly"
+          class="founder__photo"
+          loading="lazy"
+          width="480"
+          height="480"
+        />
+        <div class="founder__image-accent"></div>
+      </div>
+    </div>
+
+    <div class="founder__content reveal reveal-delay-2">
+      <span class="kicker">Quem está por trás</span>
+      <h2>Nasceu de conversas reais<br />com corretores em Goiânia</h2>
+
+      <div class="founder__bio">
+        <p>
+          Criada por <strong>Guilherme Tavares</strong>, fundador da
+          <strong>GTech</strong>, depois de ouvir dezenas de corretores contarem
+          a mesma história: lead sumindo, visita furando, planilha abandonada.
+        </p>
+        <p>
+          A resposta não era mais um CRM genérico — era uma ferramenta para
+          quem vende na rua, celular na mão, precisando de velocidade, não de burocracia.
+        </p>
+      </div>
+
+      <div class="founder__brand">
+        <div class="founder__brand-badge">
+          <img
+            src="/logo-gtech.webp"
+            alt="GTech"
+            class="founder__gtech-logo"
+            loading="lazy"
+            width="48"
+            height="48"
+          />
+          <div>
+            <strong>GT Tecnologia e Serviços LTDA</strong>
+            <span>Setor Marista, Goiânia — GO · Desde 2022</span>
+          </div>
+        </div>
+        <p class="founder__cnpj">CNPJ 46.112.388/0001-13</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .founder {
+    background: var(--navy-900);
+    color: var(--white);
+    overflow: hidden;
+  }
+
+  .founder .kicker {
+    color: var(--amber-light);
+  }
+
+  .founder .kicker::before {
+    background: var(--amber-light);
+  }
+
+  .founder h2 {
+    color: var(--white);
+  }
+
+  .founder__grid {
+    display: grid;
+    grid-template-columns: 0.45fr 0.55fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .founder__image-frame {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    aspect-ratio: 1;
+    max-width: 420px;
+  }
+
+  .founder__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.1) contrast(1.05);
+    transition: filter var(--duration-slow);
+  }
+
+  .founder__image-frame:hover .founder__photo {
+    filter: grayscale(0) contrast(1);
+  }
+
+  .founder__image-accent {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+      to top,
+      rgba(12, 18, 34, 0.6) 0%,
+      transparent 40%
+    );
+    pointer-events: none;
+  }
+
+  .founder__bio {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .founder__bio p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--slate-300);
+  }
+
+  .founder__bio strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .founder__brand {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--navy-600);
+  }
+
+  .founder__brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: 12px 20px 12px 12px;
+    background: var(--navy-800);
+    border: 1px solid var(--navy-600);
+    border-radius: var(--radius-lg);
+  }
+
+  .founder__gtech-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    object-fit: contain;
+    background: var(--white);
+    padding: 4px;
+  }
+
+  .founder__brand-badge strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--white);
+  }
+
+  .founder__brand-badge span {
+    font-size: 13px;
+    color: var(--slate-400);
+  }
+
+  .founder__cnpj {
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: var(--font-body);
+    color: var(--slate-500);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 768px) {
+    .founder__grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+    }
+
+    .founder__image-frame {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+  }
+</style>

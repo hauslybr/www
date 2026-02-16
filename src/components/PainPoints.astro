@@ -1,0 +1,164 @@
+---
+const pains = [
+  {
+    icon: '&#128242;',
+    title: 'O lead do sábado que sumiu na segunda',
+    description: 'Chegou pelo WhatsApp, você anotou no bloco de notas e na segunda já não lembra o nome. Esfriou e foi pro concorrente.',
+  },
+  {
+    icon: '&#128683;',
+    title: 'A visita que furou porque ninguém confirmou',
+    description: 'Separou a chave, montou a rota e o cliente não apareceu. Sem lembrete, sem confirmação.',
+  },
+  {
+    icon: '&#128466;',
+    title: 'A planilha que para de funcionar depois das 11h',
+    description: 'Até as 10h você atualiza. Depois a rotina engole e a planilha vira decoração no Drive.',
+  },
+  {
+    icon: '&#128561;',
+    title: 'A sensação de que algo está caindo',
+    description: 'Tem lead para retornar, visita para agendar, proposta para enviar — mas não sabe o quê, nem para quem.',
+  },
+];
+---
+
+<section id="problema" class="section pain">
+  <div class="container">
+    <div class="pain__intro reveal">
+      <div class="pain__intro-text">
+        <span class="kicker">Parece familiar?</span>
+        <h2>Você já perdeu negócio assim</h2>
+        <p class="pain__lead">
+          Não é falta de competência. É falta de processo.
+        </p>
+      </div>
+      <div class="pain__intro-image reveal reveal-delay-1">
+        <img
+          src="/pain-desk.webp"
+          alt="Mesa de corretor com celular, chaves, anotações e papéis espalhados"
+          width="1264"
+          height="848"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="pain__grid">
+      {pains.map((pain, i) => (
+        <article class={`pain__card reveal reveal-delay-${(i % 4) + 1}`}>
+          <span class="pain__card-icon" set:html={pain.icon} />
+          <h3>{pain.title}</h3>
+          <p>{pain.description}</p>
+          <div class="pain__card-line"></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pain {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pain__intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+
+  .pain__lead {
+    margin-top: var(--space-md);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .pain__intro-image {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pain__intro-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .pain__grid {
+    margin-top: var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .pain__card {
+    position: relative;
+    padding: var(--space-lg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    overflow: hidden;
+    transition:
+      transform var(--duration-md) var(--ease-out),
+      box-shadow var(--duration-md) var(--ease-out);
+  }
+
+  .pain__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pain__card-icon {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .pain__card h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    line-height: 1.3;
+  }
+
+  .pain__card p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .pain__card-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ef4444, #f97316);
+    opacity: 0;
+    transition: opacity var(--duration-md);
+  }
+
+  .pain__card:hover .pain__card-line {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .pain__intro {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .pain__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

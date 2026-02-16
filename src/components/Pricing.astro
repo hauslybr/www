@@ -1,0 +1,234 @@
+---
+const plans = [
+  {
+    name: 'Grátis',
+    price: 'R$0',
+    period: 'para sempre',
+    description: 'Para começar a organizar seu funil sem compromisso.',
+    features: [
+      'Até 25 leads ativos',
+      'Pipeline visual',
+      'Próxima ação definida para cada lead',
+      'Cadastro em 20 segundos',
+      'Acesso mobile completo',
+    ],
+    cta: 'Em breve',
+    popular: false,
+  },
+  {
+    name: 'Pro',
+    price: 'R$49',
+    period: '/mês',
+    description: 'Para quem quer escalar a operação e fechar mais.',
+    features: [
+      'Leads ilimitados',
+      'Google Calendar sync',
+      'Carteira completa de imóveis',
+      'Relatórios de performance',
+      'Follow-up automático',
+    ],
+    cta: 'Em breve',
+    popular: true,
+    anchor: 'Menos que um almoço por semana',
+  },
+];
+---
+
+<section id="preco" class="section pricing">
+  <div class="container">
+    <div class="pricing__header reveal">
+      <span class="kicker" style="justify-content: center;">Investimento</span>
+      <h2 style="text-align: center;">Comece grátis.<br />Escale quando fizer sentido.</h2>
+      <p class="pricing__sub">Sem surpresa, sem contrato, sem cartão para começar.</p>
+    </div>
+
+    <div class="pricing__grid">
+      {plans.map((plan, i) => (
+        <article class={`pricing__card ${plan.popular ? 'pricing__card--popular' : ''} reveal reveal-delay-${i + 1}`}>
+          {plan.popular && <div class="pricing__badge">Mais popular</div>}
+          <div class="pricing__card-header">
+            <h3>{plan.name}</h3>
+            <div class="pricing__price">
+              <span class="pricing__amount">{plan.price}</span>
+              <span class="pricing__period">{plan.period}</span>
+            </div>
+            <p class="pricing__desc">{plan.description}</p>
+          </div>
+          <ul class="pricing__features">
+            {plan.features.map((feat) => (
+              <li>
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="var(--amber)" stroke-width="1.5"/><path d="M6 9l2.5 2.5L12 7" stroke="var(--amber)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {feat}
+              </li>
+            ))}
+          </ul>
+          {plan.anchor && <p class="pricing__anchor">{plan.anchor}</p>}
+          <span class={`btn ${plan.popular ? 'btn--amber' : 'btn--ghost'} pricing__cta pricing__cta--disabled`}>
+            {plan.cta}
+          </span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    background: var(--surface);
+  }
+
+  .pricing__header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .pricing__header .kicker {
+    justify-content: center;
+  }
+
+  .pricing__sub {
+    margin-top: var(--space-md);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .pricing__grid {
+    margin-top: var(--space-xl);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing__card {
+    position: relative;
+    padding: var(--space-xl) var(--space-lg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform var(--duration-md) var(--ease-out),
+      box-shadow var(--duration-md) var(--ease-out);
+  }
+
+  .pricing__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .pricing__card--popular {
+    border-color: var(--amber);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .pricing__badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 16px;
+    background: var(--amber);
+    color: var(--navy-950);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .pricing__card-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .pricing__card h3 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .pricing__price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .pricing__amount {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    color: var(--text-primary);
+    line-height: 1;
+  }
+
+  .pricing__period {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .pricing__desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .pricing__features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: var(--space-lg);
+    flex: 1;
+  }
+
+  .pricing__features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+
+  .pricing__features li svg {
+    flex-shrink: 0;
+  }
+
+  .pricing__anchor {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--amber);
+    text-align: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .pricing__cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pricing__cta--disabled {
+    opacity: 0.6;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .pricing__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing__card--popular {
+      order: -1;
+    }
+  }
+</style>

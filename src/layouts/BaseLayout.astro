@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const siteUrl = 'https://hauslybr.com';
+const { title = 'Hausly CRM | CRM imobiliário para corretores', description = 'Hausly CRM organiza leads, visitas e carteira de imóveis em um fluxo simples para corretores venderem mais no Brasil.' } = Astro.props;
+const canonicalUrl = `${siteUrl}/`;
+const ogImage = `${siteUrl}/og-image.webp`;
+
+const orgLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Hausly CRM',
+  legalName: 'GT Tecnologia e Serviços LTDA',
+  url: siteUrl,
+  email: 'contato@hauslybr.com',
+  telephone: '+5562984610130',
+  taxID: '46.112.388/0001-13',
+  foundingDate: '2022-04-22',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. Portugal, 1148 — Ed. Orion Business, Sala 2501/322',
+    addressLocality: 'Goiânia',
+    addressRegion: 'GO',
+    postalCode: '74150-030',
+    addressCountry: 'BR',
+  },
+};
+
+const softwareLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Hausly CRM',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Android, iOS',
+  inLanguage: 'pt-BR',
+  offers: [
+    { '@type': 'Offer', price: '0', priceCurrency: 'BRL', name: 'Grátis' },
+    { '@type': 'Offer', price: '49', priceCurrency: 'BRL', name: 'Pro', billingIncrement: 'P1M' },
+  ],
+  description,
+};
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Vou ter que parar de usar WhatsApp?',
+      acceptedAnswer: { '@type': 'Answer', text: 'De jeito nenhum. A Hausly complementa o WhatsApp. Você continua conversando com seus clientes normalmente — a plataforma organiza o que acontece depois: follow-up, próxima ação, visita, pipeline.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'Quanto custa a Hausly?',
+      acceptedAnswer: { '@type': 'Answer', text: 'O plano gratuito permite até 25 leads ativos — para sempre, sem cartão. O plano Pro custa R$49/mês e libera leads ilimitados, Calendar sync, relatórios e follow-up automático.' },
+    },
+    {
+      '@type': 'Question',
+      name: 'A Hausly só funciona em Goiânia?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Não. A Hausly funciona no Brasil inteiro. A validação começou com corretores em Goiânia, mas a plataforma está pronta para qualquer cidade.' },
+    },
+  ],
+};
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Hausly CRM" />
+    <meta name="theme-color" content="#0c1222" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Hausly CRM" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="1024" />
+    <meta property="og:image:alt" content="Hausly CRM — CRM imobiliário para corretores" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(softwareLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll reveal observer -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

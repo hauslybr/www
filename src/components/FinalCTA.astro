@@ -1,0 +1,103 @@
+---
+
+---
+
+<section class="section cta">
+  <div class="cta__bg">
+    <img
+      src="/cta-closing.webp"
+      alt="Corretora de imóveis entregando chave para casal em apartamento novo"
+      width="1456"
+      height="720"
+      loading="lazy"
+    />
+    <div class="cta__overlay"></div>
+  </div>
+  <div class="container--narrow cta__inner reveal">
+    <h2>Corretores que fecham mais já estão organizando seu funil</h2>
+    <p>
+      Comece grátis, sem cartão, e veja a diferença no seu dia a dia.
+    </p>
+    <div class="cta__actions">
+      <span class="cta__badge">Em breve na App Store e Google Play</span>
+    </div>
+    <p class="cta__micro">Validado com dezenas de corretores em Goiânia</p>
+  </div>
+</section>
+
+<style>
+  .cta {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cta__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .cta__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .cta__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(12, 18, 34, 0.82) 0%,
+      rgba(12, 18, 34, 0.88) 50%,
+      rgba(12, 18, 34, 0.92) 100%
+    );
+  }
+
+  .cta__inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta h2 {
+    color: var(--white);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta p {
+    margin: var(--space-md) auto 0;
+    max-width: 520px;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--slate-300);
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: var(--space-xl);
+  }
+
+  .cta__badge {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid rgba(221, 148, 41, 0.4);
+    border-radius: var(--radius-full);
+    background: rgba(221, 148, 41, 0.12);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--amber-light);
+  }
+
+  .cta__micro {
+    margin-top: var(--space-md);
+    font-size: 13px !important;
+    font-weight: 600;
+    color: var(--slate-400) !important;
+  }
+</style>
