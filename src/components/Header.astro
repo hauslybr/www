@@ -1,16 +1,29 @@
 ---
-const navLinks = [
-  { label: 'Problema', href: '#problema' },
-  { label: 'Como funciona', href: '#como-funciona' },
-  { label: 'Preços', href: '#preco' },
-  { label: 'Quem faz', href: '#fundador' },
-  { label: 'FAQ', href: '#faq' },
-];
+interface Props {
+  kind?: 'home' | 'legal';
+}
+
+const { kind = 'home' } = Astro.props;
+const isLegal = kind === 'legal';
+
+const navLinks = isLegal
+  ? [
+      { label: 'Início', href: '/' },
+      { label: 'Privacidade', href: '/politica-de-privacidade' },
+      { label: 'Excluir conta', href: '/exclusao-de-conta' },
+    ]
+  : [
+      { label: 'Problema', href: '#problema' },
+      { label: 'Como funciona', href: '#como-funciona' },
+      { label: 'Preços', href: '#preco' },
+      { label: 'Quem faz', href: '#fundador' },
+      { label: 'FAQ', href: '#faq' },
+    ];
 ---
 
 <header class="header">
   <div class="container header__inner">
-    <a class="header__brand" href="#inicio" aria-label="Hausly CRM">
+    <a class="header__brand" href={isLegal ? '/' : '#inicio'} aria-label="Hausly CRM">
       <img src="/hausly-logo-light.svg" alt="Hausly" class="header__logo" width="36" height="36" />
       <span class="header__wordmark">Hausly</span>
     </a>
@@ -21,7 +34,15 @@ const navLinks = [
       ))}
     </nav>
 
-    <span class="header__coming-soon">Em breve nas lojas</span>
+    {
+      isLegal ? (
+        <a class="header__coming-soon" href="mailto:contato@gtechgo.com">
+          contato@gtechgo.com
+        </a>
+      ) : (
+        <span class="header__coming-soon">Em breve nas lojas</span>
+      )
+    }
   </div>
 </header>
 

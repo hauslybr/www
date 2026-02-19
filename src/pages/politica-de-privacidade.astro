@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const updatedAt = '19 de fevereiro de 2026';
@@ -11,7 +12,8 @@ const updatedAt = '19 de fevereiro de 2026';
   canonicalPath="/politica-de-privacidade"
   includeFaqLd={false}
 >
-  <main class="legal-page">
+  <Header kind="legal" />
+  <main id="inicio" class="legal-page">
     <section class="legal-hero">
       <div class="container--narrow">
         <a href="/" class="legal-back">← Voltar para a página inicial</a>
@@ -85,7 +87,7 @@ const updatedAt = '19 de fevereiro de 2026';
         <h2>7. Contato</h2>
         <p>
           Para dúvidas sobre privacidade, proteção de dados ou exercício de direitos:
-          <a href="mailto:contato@hauslybr.com">contato@hauslybr.com</a>.
+          <a href="mailto:contato@gtechgo.com">contato@gtechgo.com</a>.
         </p>
       </div>
     </section>
@@ -100,7 +102,7 @@ const updatedAt = '19 de fevereiro de 2026';
   }
 
   .legal-hero {
-    padding: 96px 0 28px;
+    padding: 56px 0 28px;
   }
 
   .legal-back {
@@ -174,7 +176,7 @@ const updatedAt = '19 de fevereiro de 2026';
 
   @media (max-width: 768px) {
     .legal-hero {
-      padding-top: 72px;
+      padding-top: 40px;
     }
 
     .legal-card {
