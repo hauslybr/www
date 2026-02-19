@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+
+const updatedAt = '19 de fevereiro de 2026';
+---
+
+<BaseLayout
+  title="Exclusão de Conta | Hausly CRM"
+  description="Saiba como solicitar a exclusão da sua conta e dos seus dados no Hausly CRM."
+  canonicalPath="/exclusao-de-conta"
+  includeFaqLd={false}
+>
+  <main class="legal-page">
+    <section class="legal-hero">
+      <div class="container--narrow">
+        <a href="/" class="legal-back">← Voltar para a página inicial</a>
+        <h1>Exclusão de Conta</h1>
+        <p>
+          Se você deseja excluir sua conta do Hausly CRM, siga as orientações abaixo. A exclusão
+          remove o acesso ao app e inicia o processo de apagamento dos dados vinculados à conta.
+        </p>
+        <p class="legal-updated">Última atualização: {updatedAt}</p>
+      </div>
+    </section>
+
+    <section class="legal-content">
+      <div class="container--narrow legal-card">
+        <h2>1. Como solicitar a exclusão</h2>
+        <p>
+          Envie um e-mail para
+          <a href="mailto:contato@hauslybr.com?subject=Solicita%C3%A7%C3%A3o%20de%20Exclus%C3%A3o%20de%20Conta">
+            contato@hauslybr.com
+          </a>
+          com o assunto <strong>"Solicitação de Exclusão de Conta"</strong>.
+        </p>
+        <p>No corpo da mensagem, informe:</p>
+        <ul>
+          <li>Nome completo.</li>
+          <li>E-mail da conta cadastrada.</li>
+          <li>Telefone vinculado (se aplicável).</li>
+        </ul>
+
+        <h2>2. Prazo de processamento</h2>
+        <p>
+          Após validação de titularidade, a solicitação é processada em até <strong>30 dias</strong>.
+          Você receberá confirmação por e-mail.
+        </p>
+
+        <h2>3. O que é excluído</h2>
+        <ul>
+          <li>Dados de perfil da conta.</li>
+          <li>Registros operacionais do CRM, como leads, visitas e imóveis associados.</li>
+          <li>Tokens de autenticação e acessos vinculados à conta.</li>
+        </ul>
+
+        <h2>4. O que pode ser mantido temporariamente</h2>
+        <p>
+          Alguns dados podem ser retidos pelo período estritamente necessário para cumprimento de
+          obrigações legais, regulatórias, prevenção de fraude e segurança.
+        </p>
+
+        <h2>5. Dúvidas e suporte</h2>
+        <p>
+          Para acompanhar uma solicitação de exclusão ou tirar dúvidas, entre em contato por
+          <a href="mailto:contato@hauslybr.com">contato@hauslybr.com</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, rgba(221, 148, 41, 0.08), transparent 42%), var(--surface);
+  }
+
+  .legal-hero {
+    padding: 96px 0 28px;
+  }
+
+  .legal-back {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-weight: 700;
+    color: var(--navy-600);
+  }
+
+  .legal-back:hover {
+    color: var(--amber);
+  }
+
+  .legal-hero h1 {
+    margin-bottom: 16px;
+  }
+
+  .legal-hero p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 72ch;
+  }
+
+  .legal-updated {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--slate-600);
+  }
+
+  .legal-content {
+    padding: 20px 0 96px;
+  }
+
+  .legal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 28px;
+  }
+
+  .legal-card h2 {
+    margin: 26px 0 10px;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+  }
+
+  .legal-card h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-card p {
+    color: var(--text-secondary);
+    margin: 0 0 12px;
+  }
+
+  .legal-card ul {
+    list-style: disc;
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+
+  .legal-card li {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+  }
+
+  .legal-card a {
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .legal-hero {
+      padding-top: 72px;
+    }
+
+    .legal-card {
+      padding: 20px;
+    }
+  }
+</style>

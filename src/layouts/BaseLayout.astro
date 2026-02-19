@@ -4,11 +4,18 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonicalPath?: string;
+  includeFaqLd?: boolean;
 }
 
 const siteUrl = 'https://hauslybr.com';
-const { title = 'Hausly CRM | CRM imobiliário para corretores', description = 'Hausly CRM organiza leads, visitas e carteira de imóveis em um fluxo simples para corretores venderem mais no Brasil.' } = Astro.props;
-const canonicalUrl = `${siteUrl}/`;
+const {
+  title = 'Hausly CRM | CRM imobiliário para corretores',
+  description = 'Hausly CRM organiza leads, visitas e carteira de imóveis em um fluxo simples para corretores venderem mais no Brasil.',
+  canonicalPath = '/',
+  includeFaqLd = true,
+} = Astro.props;
+const canonicalUrl = new URL(canonicalPath, `${siteUrl}/`).toString();
 const ogImage = `${siteUrl}/og-image.webp`;
 
 const orgLd = {
@@ -104,7 +111,7 @@ const faqLd = {
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(softwareLd)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />
+    {includeFaqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
   </head>
   <body>
     <slot />

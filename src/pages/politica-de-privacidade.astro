@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+
+const updatedAt = '19 de fevereiro de 2026';
+---
+
+<BaseLayout
+  title="Política de Privacidade | Hausly CRM"
+  description="Saiba como a Hausly coleta, usa, compartilha e protege os dados pessoais de usuários do app e do site."
+  canonicalPath="/politica-de-privacidade"
+  includeFaqLd={false}
+>
+  <main class="legal-page">
+    <section class="legal-hero">
+      <div class="container--narrow">
+        <a href="/" class="legal-back">← Voltar para a página inicial</a>
+        <h1>Política de Privacidade</h1>
+        <p>
+          Esta política descreve como a <strong>GT Tecnologia e Serviços LTDA (Hausly CRM)</strong>
+          coleta, usa, compartilha e protege dados pessoais no app Hausly CRM e no site
+          hauslybr.com.
+        </p>
+        <p class="legal-updated">Última atualização: {updatedAt}</p>
+      </div>
+    </section>
+
+    <section class="legal-content">
+      <div class="container--narrow legal-card">
+        <h2>1. Dados que coletamos</h2>
+        <ul>
+          <li>Dados de cadastro: nome, e-mail e telefone.</li>
+          <li>Dados de uso do produto: leads, imóveis, visitas e interações no app.</li>
+          <li>Dados técnicos: IP, tipo de dispositivo, sistema operacional e logs de erro.</li>
+          <li>
+            Dados de autenticação social (quando aplicável): identificadores e dados básicos do
+            provedor autorizado pelo usuário.
+          </li>
+        </ul>
+
+        <h2>2. Como usamos os dados</h2>
+        <ul>
+          <li>Fornecer e operar os recursos do CRM.</li>
+          <li>Autenticar usuários e proteger contas.</li>
+          <li>Melhorar estabilidade, performance e experiência do produto.</li>
+          <li>Atender solicitações de suporte e comunicações operacionais.</li>
+          <li>Cumprir obrigações legais e regulatórias.</li>
+        </ul>
+
+        <h2>3. Base legal (LGPD)</h2>
+        <p>
+          O tratamento de dados pode ocorrer com base em execução de contrato, legítimo interesse,
+          cumprimento de obrigação legal e, quando necessário, consentimento do titular.
+        </p>
+
+        <h2>4. Compartilhamento de dados</h2>
+        <p>Podemos compartilhar dados com operadores e provedores necessários para o serviço, como:</p>
+        <ul>
+          <li>Hospedagem, banco de dados e monitoramento.</li>
+          <li>Provedores de autenticação e integração de calendário.</li>
+          <li>Processamento de cobrança e assinaturas.</li>
+        </ul>
+        <p>
+          Não vendemos dados pessoais. O compartilhamento é limitado ao necessário para execução do
+          serviço e obrigações legais.
+        </p>
+
+        <h2>5. Retenção e segurança</h2>
+        <p>
+          Mantemos dados pelo tempo necessário para cumprir as finalidades desta política, requisitos
+          legais e prevenção de fraude. Adotamos medidas técnicas e organizacionais para proteger
+          informações contra acesso não autorizado, perda e uso indevido.
+        </p>
+
+        <h2>6. Direitos do titular</h2>
+        <p>Você pode solicitar, conforme a LGPD:</p>
+        <ul>
+          <li>Confirmação de tratamento e acesso aos dados.</li>
+          <li>Correção de dados incompletos ou desatualizados.</li>
+          <li>Anonimização, bloqueio ou eliminação quando aplicável.</li>
+          <li>Portabilidade e informações sobre compartilhamentos.</li>
+          <li>Revogação de consentimento, quando essa for a base legal.</li>
+        </ul>
+
+        <h2>7. Contato</h2>
+        <p>
+          Para dúvidas sobre privacidade, proteção de dados ou exercício de direitos:
+          <a href="mailto:contato@hauslybr.com">contato@hauslybr.com</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, rgba(221, 148, 41, 0.08), transparent 42%), var(--surface);
+  }
+
+  .legal-hero {
+    padding: 96px 0 28px;
+  }
+
+  .legal-back {
+    display: inline-block;
+    margin-bottom: 18px;
+    font-weight: 700;
+    color: var(--navy-600);
+  }
+
+  .legal-back:hover {
+    color: var(--amber);
+  }
+
+  .legal-hero h1 {
+    margin-bottom: 16px;
+  }
+
+  .legal-hero p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    max-width: 72ch;
+  }
+
+  .legal-updated {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--slate-600);
+  }
+
+  .legal-content {
+    padding: 20px 0 96px;
+  }
+
+  .legal-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 28px;
+  }
+
+  .legal-card h2 {
+    margin: 26px 0 10px;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+  }
+
+  .legal-card h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-card p {
+    color: var(--text-secondary);
+    margin: 0 0 12px;
+  }
+
+  .legal-card ul {
+    list-style: disc;
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+
+  .legal-card li {
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+  }
+
+  .legal-card a {
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .legal-hero {
+      padding-top: 72px;
+    }
+
+    .legal-card {
+      padding: 20px;
+    }
+  }
+</style>
