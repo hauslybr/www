@@ -6,7 +6,10 @@ import WaitlistForm from './WaitlistForm.astro';
 <section class="radical-hero">
    <div class="wrapper">
       <div class="hero-content reveal delay-1">
-         <div class="kicker">Esqueça as planilhas</div>
+         <div class="hero-trust">
+            <img src="/icons/google-calendar.svg" width="18" height="18" alt="" />
+            <span>Sincroniza com <strong>Google Calendar</strong></span>
+         </div>
          <h1 class="h-massive">
             O WhatsApp não <br>
             é um <span class="accent-glow">CRM.</span>
@@ -17,10 +20,6 @@ import WaitlistForm from './WaitlistForm.astro';
 
          <div class="hero-actions">
             <WaitlistForm />
-            <div class="hero-trust">
-               <img src="/icons/google-calendar.svg" width="18" height="18" alt="" />
-               <span>Sincroniza com <strong>Google Calendar</strong></span>
-            </div>
          </div>
       </div>
    </div>
@@ -80,7 +79,7 @@ import WaitlistForm from './WaitlistForm.astro';
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-full);
-      margin-top: var(--space-sm);
+      margin-bottom: var(--space-lg);
    }
 
    .hero-trust span {
