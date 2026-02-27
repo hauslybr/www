@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Página não encontrada | Hausly" description="A página que você procura não existe.">
+  <main class="not-found">
+    <div class="wrapper">
+      <h1 class="h-massive">404</h1>
+      <p class="t-lead">A página que você procura não existe.</p>
+      <a href="/" class="btn-amber">Voltar para o início</a>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .not-found .t-lead {
+    margin: var(--space-lg) 0 var(--space-xl);
+  }
+</style>

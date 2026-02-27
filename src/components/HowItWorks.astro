@@ -2,44 +2,61 @@
 const steps = [
   {
     num: '01',
-    badge: '20s',
-    title: 'Cadastre o lead',
-    description: 'Nome, telefone, interesse. Direto do celular, entre uma visita e outra.',
+    badge: '15 Segundos',
+    title: 'Cadastrou o Lead',
+    description: 'Nome, interesse e estágio. Direto do celular, entre uma visita e outra. Sem planilha, sem anotar em guardanapo.',
   },
   {
     num: '02',
     badge: 'Automático',
-    title: 'Próxima ação definida',
-    description: 'Nenhum lead fica sem próximo passo. Follow-up com data e lembrete automático.',
+    title: 'Ação Definida',
+    description: 'O Hausly te obriga a definir o próximo passo. Histórico completo de cada contato — nenhum lead esfria no esquecimento.',
   },
   {
     num: '03',
-    badge: '1 clique',
-    title: 'Agende a visita',
-    description: 'Lead, imóvel e horário em um toque. Confirmação automática para você e o cliente.',
+    badge: '1 Clique',
+    title: 'Visita Agendada',
+    description: 'Link direto pro WhatsApp do cliente com lembrete e endereço do imóvel. Agenda sincronizada com Google Calendar.',
   },
   {
     num: '04',
-    badge: 'Tempo real',
-    title: 'Acompanhe o pipeline',
-    description: 'Quanto tem no funil, quantas visitas na semana, quais leads estão quentes. Dados, não chute.',
+    badge: 'Controle Total',
+    title: 'Pipeline na Mão',
+    description: 'Bata o olho de manhã e saiba quem cobrar. Seus dados, seus contatos, seus negócios — 100% do corretor.',
   },
 ];
 ---
 
 <section id="como-funciona" class="section how">
   <div class="container">
-    <div class="how__header reveal">
-      <span class="kicker">Como funciona</span>
-      <h2>De lead a fechamento<br />em 4 passos simples</h2>
+    <div class="how__intro">
+      <div class="how__header reveal">
+        <span class="kicker">Como funciona</span>
+        <h2>Do WhatsApp ao<br />Fechamento em 4 passos</h2>
+        <p class="how__lead">Feito para não tomar seu tempo. Apenas o essencial para você focar no que dá dinheiro: <strong>vender</strong>.</p>
+      </div>
+      <div class="how__image reveal reveal-delay-1">
+        <div class="how__image-frame">
+          <img
+            src="/how-it-works.webp"
+            alt="Corretor usando o celular na rua em frente a um prédio"
+            width="848"
+            height="1264"
+            loading="lazy"
+          />
+          <div class="how__image-overlay"></div>
+        </div>
+      </div>
     </div>
 
     <div class="how__grid">
       {steps.map((step, i) => (
         <article class={`how__step reveal reveal-delay-${i + 1}`}>
-          <div class="how__step-num">{step.num}</div>
+          <div class="how__step-header">
+             <div class="how__step-num">{step.num}</div>
+             <span class="how__step-badge">{step.badge}</span>
+          </div>
           <div class="how__step-content">
-            <span class="how__step-badge">{step.badge}</span>
             <h3>{step.title}</h3>
             <p>{step.description}</p>
           </div>
@@ -52,119 +69,218 @@ const steps = [
 
 <style>
   .how {
-    background: var(--surface);
+    background: var(--navy-900);
+    color: var(--text-pure);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how::before {
+     content: '';
+     position: absolute;
+     inset: 0;
+     background: radial-gradient(circle at top right, rgba(221, 148, 41, 0.05) 0%, transparent 50%);
+     pointer-events: none;
+  }
+
+  /* Intro: header text left + image right */
+  .how__intro {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    margin-bottom: var(--space-lg);
   }
 
   .how__header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 560px;
   }
 
   .how__header .kicker {
-    justify-content: center;
+    color: var(--amber-light);
   }
 
+  .how__header .kicker::before {
+     background: var(--amber-light);
+  }
+
+  .how__header h2 {
+     color: var(--text-pure);
+     font-size: 2.4rem;
+  }
+
+  .how__lead {
+     margin-top: var(--space-md);
+     font-size: 1.15rem;
+     color: var(--slate-300);
+  }
+
+  .how__lead strong {
+     color: var(--amber);
+  }
+
+  /* Image */
+  .how__image-frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+    max-height: 380px;
+  }
+
+  .how__image-frame img {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    object-position: 40% 35%;
+  }
+
+  .how__image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-deep) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* Steps 4-column grid */
   .how__grid {
-    margin-top: var(--space-2xl);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    gap: 48px;
     position: relative;
   }
 
   .how__step {
     position: relative;
-    text-align: center;
-    padding: 0 var(--space-md);
+    padding: var(--space-lg);
+    background: var(--navy-800);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    transition: transform var(--duration-md), box-shadow var(--duration-md), border-color var(--duration-md);
+  }
+
+  .how__step:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+     border-color: rgba(221, 148, 41, 0.3);
+  }
+
+  .how__step-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     margin-bottom: var(--space-lg);
   }
 
   .how__step-num {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto var(--space-md);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, var(--amber), #e8a840);
-    color: var(--navy-950);
     font-family: var(--font-display);
-    font-size: 1.5rem;
-    box-shadow: 0 8px 24px rgba(221, 148, 41, 0.25);
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--amber);
+    opacity: 0.9;
   }
 
   .how__step-badge {
     display: inline-block;
-    padding: 3px 10px;
-    background: var(--amber-glow);
+    padding: 4px 12px;
+    background: rgba(221, 148, 41, 0.1);
     border: 1px solid rgba(221, 148, 41, 0.2);
     border-radius: var(--radius-full);
     font-size: 12px;
     font-weight: 800;
-    color: var(--amber);
-    letter-spacing: 0.03em;
+    color: var(--amber-light);
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    margin-bottom: var(--space-sm);
   }
 
   .how__step h3 {
     font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-pure);
     margin-bottom: var(--space-sm);
     line-height: 1.3;
   }
 
   .how__step p {
     font-size: 14px;
-    color: var(--text-secondary);
-    line-height: 1.65;
+    color: var(--slate-300);
+    line-height: 1.6;
   }
 
   .how__step-connector {
     position: absolute;
-    top: 28px;
-    right: -12px;
-    width: 24px;
+    top: 50%;
+    right: -48px;
+    width: 48px;
     height: 2px;
-    background: var(--border);
-    z-index: 1;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    transform: translateY(-50%);
   }
 
   .how__step-connector::after {
     content: '';
     position: absolute;
-    right: -2px;
-    top: -3px;
-    width: 8px;
-    height: 8px;
+    right: 0;
+    top: -4px;
+    width: 10px;
+    height: 10px;
     border-right: 2px solid var(--amber);
     border-top: 2px solid var(--amber);
     transform: rotate(45deg);
   }
 
-  @media (max-width: 900px) {
-    .how__grid {
+  @media (max-width: 1024px) {
+    .how__intro {
       grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .how__header {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .how__header .kicker {
+      justify-content: center;
+    }
+
+    .how__image-frame {
+      max-height: 360px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .how__image-frame img {
+      height: 360px;
+    }
+
+    .how__grid {
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--space-xl);
     }
 
-    .how__step {
-      text-align: left;
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: var(--space-md);
-      padding: 0;
-    }
-
-    .how__step-num {
-      margin: 0;
-    }
-
     .how__step-connector {
-      display: none;
+       display: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .how__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .how__image-frame {
+      max-height: 280px;
+    }
+
+    .how__image-frame img {
+      height: 280px;
     }
   }
 </style>

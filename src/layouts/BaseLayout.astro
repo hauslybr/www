@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
 
 interface Props {
   title?: string;
@@ -10,8 +11,8 @@ interface Props {
 
 const siteUrl = 'https://hauslybr.com';
 const {
-  title = 'Hausly CRM | CRM imobiliário para corretores',
-  description = 'Hausly CRM organiza leads, visitas e carteira de imóveis em um fluxo simples para corretores venderem mais no Brasil.',
+  title = 'Hausly | CRM para Corretores de Imóveis',
+  description = 'Hausly CRM organiza seus leads, visitas e imóveis. Pare de perder comissões pelo WhatsApp e venda mais imóveis no Brasil.',
   canonicalPath = '/',
   includeFaqLd = true,
 } = Astro.props;
@@ -25,7 +26,7 @@ const orgLd = {
   legalName: 'GT Tecnologia e Serviços LTDA',
   url: siteUrl,
   email: 'contato@gtechgo.com',
-  telephone: '+5562984610130',
+  telephone: '+5562992120296',
   taxID: '46.112.388/0001-13',
   foundingDate: '2022-04-22',
   address: {
@@ -59,7 +60,7 @@ const faqLd = {
     {
       '@type': 'Question',
       name: 'Vou ter que parar de usar WhatsApp?',
-      acceptedAnswer: { '@type': 'Answer', text: 'De jeito nenhum. A Hausly complementa o WhatsApp. Você continua conversando com seus clientes normalmente — a plataforma organiza o que acontece depois: follow-up, próxima ação, visita, pipeline.' },
+      acceptedAnswer: { '@type': 'Answer', text: 'De jeito nenhum. A Hausly complementa o WhatsApp. Você continua conversando com seus clientes lá, e nós organizamos o que acontece depois: follow-up, histórico, visitas e pipeline de vendas.' },
     },
     {
       '@type': 'Question',
@@ -78,6 +79,9 @@ const faqLd = {
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -85,6 +89,7 @@ const faqLd = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content="CRM para corretores, CRM imobiliário, corretor autônomo, aplicativo para corretores, gestão de leads imobiliários, Hausly, vender imóveis" />
     <meta name="robots" content="index,follow" />
     <meta name="author" content="Hausly CRM" />
     <meta name="theme-color" content="#0c1222" />
@@ -100,7 +105,8 @@ const faqLd = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="1024" />
-    <meta property="og:image:alt" content="Hausly CRM — CRM imobiliário para corretores" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Hausly CRM — O CRM Definitivo para Corretores Autônomos" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -114,6 +120,7 @@ const faqLd = {
     {includeFaqLd && <script type="application/ld+json" set:html={JSON.stringify(faqLd)} />}
   </head>
   <body>
+    <Navbar />
     <slot />
 
     <!-- Scroll reveal observer -->

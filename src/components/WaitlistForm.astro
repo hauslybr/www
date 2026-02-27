@@ -1,0 +1,112 @@
+---
+// WaitlistForm.astro — Reusable email capture component
+// Replace YOUR_FORM_ID with your actual Formspree form ID
+---
+
+<form class="waitlist" action="https://formspree.io/f/mdaljarp" method="POST">
+  <p class="waitlist__hook">Garanta acesso antecipado gratuito</p>
+  <div class="waitlist__row">
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="seu@email.com"
+      autocomplete="email"
+      class="waitlist__input"
+      aria-label="Seu melhor email"
+    />
+    <button type="submit" class="waitlist__btn">Entrar na lista</button>
+  </div>
+  <p class="waitlist__fine">Sem spam. Seus dados estão seguros.</p>
+</form>
+
+<style>
+  .waitlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .waitlist__hook {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .waitlist__row {
+    display: flex;
+    width: 100%;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-amber);
+    background: var(--bg-card);
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .waitlist__row:focus-within {
+    border-color: var(--amber);
+    box-shadow: 0 0 0 3px rgba(221, 148, 41, 0.15);
+  }
+
+  .waitlist__input {
+    flex: 1;
+    padding: 16px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-pure);
+    font-family: var(--font-text);
+    font-size: 1rem;
+    outline: none;
+    min-width: 0;
+  }
+
+  .waitlist__input::placeholder {
+    color: var(--text-dim);
+  }
+
+  .waitlist__btn {
+    padding: 16px 28px;
+    background: var(--amber);
+    color: var(--bg-deep);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    transition: background 0.3s;
+  }
+
+  .waitlist__btn:hover {
+    background: var(--amber-light);
+  }
+
+  .waitlist__fine {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    .waitlist__row {
+      flex-direction: column;
+      border-radius: var(--radius-lg);
+    }
+
+    .waitlist__input {
+      text-align: center;
+    }
+
+    .waitlist__btn {
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+  }
+</style>

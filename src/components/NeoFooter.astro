@@ -1,0 +1,164 @@
+---
+// NeoFooter.astro
+---
+
+<footer class="neo-footer">
+   <div class="wrapper footer-grid">
+      <div class="footer-brand">
+         <img src="/hausly-logo-dark.svg" alt="Hausly" height="32" width="96" class="footer-logo" />
+         <p class="footer-desc">
+            O braço direito do corretor autônomo.
+         </p>
+         <div class="gtech-badge">
+            <span class="powered">Powered by</span>
+            <img src="/logo-gtech.webp" alt="GTech" height="24" width="60" class="gtech-img" />
+         </div>
+      </div>
+
+      <div class="footer-links">
+         <div class="link-col">
+            <h4>Produto</h4>
+            <span style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">App Móvel (Em breve)</span>
+            <span style="color: var(--text-muted); font-size: 0.9rem; font-weight: 500;">Cadastro (Em breve)</span>
+            <a href="mailto:contato@gtechgo.com">Suporte</a>
+         </div>
+         <div class="link-col">
+            <h4>Legal</h4>
+            <a href="/politica-de-privacidade">Política de Privacidade</a>
+            <a href="/exclusao-de-conta">Exclusão de Conta</a>
+         </div>
+      </div>
+   </div>
+
+   <div class="wrapper footer-bottom">
+      <p class="legal-text">
+         © {new Date().getFullYear()} Hausly CRM. Todos os direitos reservados.
+      </p>
+      <p class="legal-text cnpj">
+         Uma empresa do grupo <strong>GT Tecnologia e Serviços LTDA</strong> — CNPJ: 46.112.388/0001-13<br/>
+         Av. Portugal, 1148, Ed. Orion Business, Sala 2501/322, Goiânia - GO, 74150-030
+      </p>
+   </div>
+</footer>
+
+<style>
+   .neo-footer {
+      background: #02050b; /* Even darker than deep */
+      border-top: 1px solid var(--border-subtle);
+      padding: var(--space-2xl) 0 var(--space-xl);
+      margin-top: 64px;
+   }
+
+   .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+   }
+
+   .footer-brand {
+      max-width: 400px;
+   }
+
+   .footer-logo {
+      height: 32px;
+      width: auto;
+      margin-bottom: var(--space-md);
+   }
+
+   .footer-desc {
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      margin-bottom: var(--space-lg);
+   }
+
+   .gtech-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+   }
+
+   .powered {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+   }
+
+   .gtech-img {
+      height: 20px;
+      width: auto;
+      filter: grayscale(100%) invert(1) opacity(0.6);
+      transition: filter 0.3s;
+   }
+
+   .gtech-img:hover {
+      filter: grayscale(0%) invert(0) opacity(1);
+   }
+
+   .footer-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-lg);
+   }
+
+   .link-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+   }
+
+   .link-col h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-pure);
+      margin-bottom: var(--space-xs);
+   }
+
+   .link-col a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+   }
+
+   .link-col a:hover {
+      color: var(--amber);
+   }
+
+   .footer-bottom {
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-lg);
+   }
+
+   .legal-text {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+   }
+
+   .cnpj {
+      text-align: right;
+   }
+
+   @media (max-width: 768px) {
+      .footer-grid {
+         grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+         flex-direction: column;
+         align-items: flex-start;
+      }
+      .cnpj {
+         text-align: left;
+      }
+   }
+</style>

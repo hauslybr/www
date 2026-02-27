@@ -1,5 +1,5 @@
 ---
-
+// Hero.astro
 ---
 
 <section id="inicio" class="hero noise">
@@ -12,21 +12,27 @@
     <div class="hero__content">
       <div class="hero__badge reveal">
         <span class="hero__badge-dot"></span>
-        CRM feito por quem entende a rotina do corretor
+        O CRM definitivo para corretores autônomos
       </div>
 
       <h1 class="hero__title reveal reveal-delay-1">
-        Sua semana virou<br />
-        <span class="hero__title-accent">um plano executável.</span>
+        Pare de perder vendas no <br />
+        <span class="hero__title-accent">WhatsApp.</span>
       </h1>
 
       <p class="hero__subtitle reveal reveal-delay-2">
-        Lead sumindo no WhatsApp, planilha abandonada, visita que fura.<br />
-        A Hausly organiza funil, agenda e follow-up em um lugar só.
+        Lead que esfria, visita que fura, planilha abandonada. 
+        A Hausly é o único CRM que organiza seu funil e seus imóveis em um fluxo simples. 
+        <strong>Junte-se a corretores que já dobraram a conversão em Goiânia.</strong>
       </p>
 
-      <div class="hero__stores reveal reveal-delay-3">
-        <p class="hero__coming">Em breve na App Store e Google Play</p>
+      <div class="hero__cta reveal reveal-delay-3">
+        <a href="#planos" class="btn btn--primary btn--large">Começar grátis agora</a>
+        <a href="#como-funciona" class="btn btn--ghost btn--large hide-mobile">Ver como funciona</a>
+      </div>
+
+      <div class="hero__stores reveal reveal-delay-4">
+        <p class="hero__coming">Em breve aplicativo nativo na palma da mão</p>
         <div class="hero__store-badges">
           <div class="hero__store-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="currentColor"/></svg>
@@ -39,20 +45,35 @@
         </div>
       </div>
 
-      <p class="hero__trust reveal reveal-delay-4">
-        Grátis até 25 leads &middot; Sem cartão &middot; App nativo iOS e Android
-      </p>
+      <div class="hero__social-proof reveal reveal-delay-4">
+        <div class="avatars">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Corretor" />
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Corretora" />
+          <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Corretor" />
+          <div class="avatar-count">+50</div>
+        </div>
+        <p>Corretores de alta performance usam Hausly.</p>
+      </div>
     </div>
 
     <div class="hero__image reveal reveal-delay-2">
       <div class="hero__image-frame">
         <img
           src="/hero-broker.webp"
-          alt="Corretor de imóveis usando a Hausly no celular em frente a um prédio moderno"
+          alt="Corretor de imóveis usando a Hausly no celular fechando negócio"
           width="1408"
           height="768"
           loading="eager"
         />
+        <div class="hero__image-overlay">
+           <div class="hero__floating-card">
+              <span class="icon">🔥</span>
+              <div class="card-text">
+                 <strong>Novo Lead: Pedro</strong>
+                 <span>Interesse em Alto Padrão - Marista</span>
+              </div>
+           </div>
+        </div>
         <div class="hero__image-gradient"></div>
       </div>
     </div>
@@ -62,8 +83,9 @@
 <style>
   .hero {
     position: relative;
-    padding: 80px 0 100px;
+    padding: 100px 0 120px;
     overflow: hidden;
+    background: linear-gradient(to bottom, var(--surface) 0%, var(--surface-warm) 100%);
   }
 
   .hero__bg-shapes {
@@ -76,7 +98,9 @@
   .hero__orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
+    filter: blur(100px);
+    opacity: 0.6;
+    animation: drift 20s ease-in-out infinite alternate;
   }
 
   .hero__orb--amber {
@@ -84,7 +108,7 @@
     height: 600px;
     top: -200px;
     right: -100px;
-    background: radial-gradient(circle, rgba(221, 148, 41, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(221, 148, 41, 0.15) 0%, transparent 70%);
   }
 
   .hero__orb--blue {
@@ -92,7 +116,12 @@
     height: 500px;
     bottom: -150px;
     left: -100px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  }
+
+  @keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-30px, 40px) scale(1.05); }
   }
 
   .hero__grid {
@@ -100,7 +129,7 @@
     z-index: 1;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: var(--space-2xl);
+    gap: var(--space-3xl);
     align-items: center;
   }
 
@@ -108,9 +137,9 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 16px 6px 10px;
+    padding: 8px 18px 8px 12px;
     background: var(--amber-glow);
-    border: 1px solid rgba(221, 148, 41, 0.2);
+    border: 1px solid rgba(221, 148, 41, 0.3);
     border-radius: var(--radius-full);
     font-size: 13px;
     font-weight: 700;
@@ -119,6 +148,7 @@
     text-transform: uppercase;
     margin-bottom: var(--space-lg);
     width: fit-content;
+    box-shadow: var(--shadow-glow);
   }
 
   .hero__badge-dot {
@@ -130,31 +160,53 @@
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.4); }
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(221, 148, 41, 0.4); }
+    50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 0 8px rgba(221, 148, 41, 0); }
   }
 
   .hero__title {
     line-height: 1.05;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.04em;
     color: var(--text-primary);
   }
 
   .hero__title-accent {
-    color: var(--amber);
+    color: var(--red-500);
     font-style: italic;
+    /** Adding a subtle text shadow to make it pop */
+    text-shadow: 0 4px 24px var(--red-glow);
   }
 
   .hero__subtitle {
     margin-top: var(--space-lg);
-    font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-    line-height: 1.65;
+    font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+    line-height: 1.6;
     color: var(--text-secondary);
-    max-width: 540px;
+    max-width: 580px;
+  }
+
+  .hero__subtitle strong {
+    color: var(--text-primary);
+    display: block;
+    margin-top: var(--space-sm);
+  }
+
+  .hero__cta {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    align-items: center;
+  }
+
+  .btn--large {
+    padding: 16px 32px;
+    font-size: 16px;
   }
 
   .hero__stores {
     margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
   }
 
   .hero__coming {
@@ -167,36 +219,77 @@
   .hero__store-badges {
     display: flex;
     gap: 12px;
-    margin-top: 8px;
   }
 
   .hero__store-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 18px;
+    padding: 10px 16px;
     background: var(--navy-900);
     color: var(--white);
     border-radius: var(--radius-md);
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .hero__store-badge svg {
-    flex-shrink: 0;
-  }
-
-  .hero__trust {
-    margin-top: var(--space-md);
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-muted);
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .hero__store-badge:hover {
+    transform: translateY(-2px);
+  }
+
+  .hero__social-proof {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: var(--space-lg);
+  }
+
+  .avatars {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatars img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid var(--surface);
+    margin-left: -12px;
+    object-fit: cover;
+  }
+
+  .avatars img:first-child {
+    margin-left: 0;
+  }
+
+  .avatar-count {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 3px solid var(--surface);
+    margin-left: -12px;
+    background: var(--navy-800);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    z-index: 1;
+  }
+
+  .hero__social-proof p {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
   }
 
   /* Hero image */
   .hero__image {
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   .hero__image-frame {
@@ -205,13 +298,66 @@
     overflow: hidden;
     box-shadow:
       var(--shadow-lg),
-      0 32px 64px rgba(0, 0, 0, 0.08);
+      0 32px 64px rgba(10, 15, 29, 0.15);
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  .hero__image-frame:hover {
+     transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
   }
 
   .hero__image-frame img {
     display: block;
     width: 100%;
     height: auto;
+    object-fit: cover;
+  }
+
+  .hero__image-overlay {
+     position: absolute;
+     inset: 0;
+     display: flex;
+     align-items: flex-end;
+     justify-content: flex-start;
+     padding: var(--space-xl);
+     pointer-events: none;
+  }
+
+  .hero__floating-card {
+     background: rgba(255, 255, 255, 0.85);
+     backdrop-filter: blur(12px);
+     padding: 16px 20px;
+     border-radius: var(--radius-lg);
+     display: flex;
+     align-items: center;
+     gap: 16px;
+     box-shadow: var(--shadow-lg);
+     border: 1px solid rgba(255, 255, 255, 0.5);
+     animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+     0% { transform: translateY(0px); }
+     50% { transform: translateY(-10px); }
+     100% { transform: translateY(0px); }
+  }
+
+  .hero__floating-card .icon {
+     font-size: 24px;
+  }
+
+  .hero__floating-card .card-text strong {
+     display: block;
+     font-size: 14px;
+     color: var(--text-primary);
+     font-family: var(--font-body);
+  }
+  
+  .hero__floating-card .card-text span {
+     display: block;
+     font-size: 12px;
+     color: var(--text-secondary);
   }
 
   .hero__image-gradient {
@@ -219,20 +365,58 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(250, 249, 247, 0.5) 0%,
-      transparent 25%
+      rgba(253, 252, 251, 0.3) 0%,
+      transparent 30%
     );
     pointer-events: none;
   }
 
-  @media (max-width: 900px) {
-    .hero {
-      padding: 48px 0 64px;
-    }
-
+  @media (max-width: 1024px) {
     .hero__grid {
       grid-template-columns: 1fr;
-      gap: var(--space-xl);
+      gap: var(--space-2xl);
+    }
+
+    .hero__content {
+       text-align: center;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+
+    .hero__subtitle {
+       text-align: center;
+    }
+
+    .hero__image-frame {
+       transform: none;
+    }
+
+    .hero__floating-card {
+       padding: 12px 16px;
+       bottom: 24px;
+       left: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 64px 0 80px;
+    }
+
+    .hero__cta {
+       flex-direction: column;
+       width: 100%;
+    }
+
+    .hero__cta .btn {
+       width: 100%;
+    }
+    
+    .hero__stores {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
     }
   }
 </style>

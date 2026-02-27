@@ -4,32 +4,32 @@ const plans = [
     name: 'Grátis',
     price: 'R$0',
     period: 'para sempre',
-    description: 'Para começar a organizar seu funil sem compromisso.',
+    description: 'Para quem quer fechar mais negócios sem depender da memória.',
     features: [
-      'Até 25 leads ativos',
-      'Pipeline visual',
-      'Próxima ação definida para cada lead',
-      'Cadastro em 20 segundos',
-      'Acesso mobile completo',
+      'Até 25 leads ativos (sempre grátis)',
+      'Pipeline visual de vendas',
+      'Gestão de próximas ações',
+      'Cadastro em 15 segundos',
+      '100% focado no mobile',
     ],
-    cta: 'Em breve',
+    cta: 'Começar Grátis',
     popular: false,
   },
   {
-    name: 'Pro',
+    name: 'Hausly Pro',
     price: 'R$49',
     period: '/mês',
-    description: 'Para quem quer escalar a operação e fechar mais.',
+    description: 'Para o corretor que quer dominar a carteira e escalar.',
     features: [
       'Leads ilimitados',
-      'Google Calendar sync',
-      'Carteira completa de imóveis',
-      'Relatórios de performance',
+      'Integração Google Calendar',
+      'Dashboard de performance',
       'Follow-up automático',
+      'Crie sua própria carteira',
     ],
-    cta: 'Em breve',
+    cta: 'Assinar Pro',
     popular: true,
-    anchor: 'Menos que um almoço por semana',
+    anchor: 'Mais barato que uma pizza por mês',
   },
 ];
 ---
@@ -37,9 +37,9 @@ const plans = [
 <section id="preco" class="section pricing">
   <div class="container">
     <div class="pricing__header reveal">
-      <span class="kicker" style="justify-content: center;">Investimento</span>
-      <h2 style="text-align: center;">Comece grátis.<br />Escale quando fizer sentido.</h2>
-      <p class="pricing__sub">Sem surpresa, sem contrato, sem cartão para começar.</p>
+      <span class="kicker" style="justify-content: center;">Sem pegadinhas</span>
+      <h2 style="text-align: center;">Comece grátis.<br />Escale quando as comissões vierem.</h2>
+      <p class="pricing__sub">Nenhum cartão de crédito exigido para criar a conta.</p>
     </div>
 
     <div class="pricing__grid">
@@ -63,9 +63,9 @@ const plans = [
             ))}
           </ul>
           {plan.anchor && <p class="pricing__anchor">{plan.anchor}</p>}
-          <span class={`btn ${plan.popular ? 'btn--amber' : 'btn--ghost'} pricing__cta pricing__cta--disabled`}>
-            {plan.cta}
-          </span>
+          <a href="#start" class={`btn ${plan.popular ? 'btn--amber' : 'btn--ghost'} pricing__cta`}>
+            Entrar na lista de espera
+          </a>
         </article>
       ))}
     </div>
@@ -214,12 +214,6 @@ const plans = [
   .pricing__cta {
     width: 100%;
     text-align: center;
-  }
-
-  .pricing__cta--disabled {
-    opacity: 0.6;
-    cursor: default;
-    pointer-events: none;
   }
 
   @media (max-width: 768px) {

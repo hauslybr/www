@@ -1,0 +1,78 @@
+---
+// RadicalHero.astro
+import WaitlistForm from './WaitlistForm.astro';
+---
+
+<section class="radical-hero">
+   <div class="wrapper">
+      <div class="hero-content reveal delay-1">
+         <div class="kicker">Esqueça as planilhas</div>
+         <h1 class="h-massive">
+            O WhatsApp não <br>
+            é um <span class="accent-glow">CRM.</span>
+         </h1>
+         <p class="t-lead">
+            Controle seus leads, agende visitas e saiba de onde vem sua próxima comissão. Tudo no celular, feito para sua rotina na rua.
+         </p>
+
+         <div class="hero-actions">
+            <WaitlistForm />
+         </div>
+      </div>
+   </div>
+</section>
+
+<style>
+   .radical-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--space-2xl);
+      padding-bottom: var(--space-xl);
+      background: radial-gradient(ellipse at 50% 0%, rgba(221, 148, 41, 0.08) 0%, transparent 60%);
+   }
+
+   .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+   }
+
+   .accent-glow {
+      color: var(--amber);
+      position: relative;
+      display: inline-block;
+   }
+
+   .accent-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--amber);
+      filter: blur(40px);
+      opacity: 0.2;
+      z-index: -1;
+   }
+
+   .t-lead {
+      max-width: 600px;
+      margin: var(--space-lg) auto var(--space-xl);
+   }
+
+   .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+   }
+
+   @media (max-width: 768px) {
+      .radical-hero {
+         min-height: auto;
+         padding-top: 140px;
+         padding-bottom: 80px;
+      }
+   }
+</style>

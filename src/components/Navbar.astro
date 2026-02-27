@@ -1,0 +1,61 @@
+---
+// Navbar.astro — Site-wide navigation bar
+---
+
+<header class="navbar">
+   <nav class="wrapper nav-inner">
+      <a href="/" class="logo">
+         <img src="/hausly-logo-dark.svg" alt="Hausly" class="logo-img" width="140" height="48" />
+      </a>
+      <span class="btn-amber btn-sm upcoming-badge">Aguarde. O jogo vai virar.</span>
+   </nav>
+</header>
+
+<style>
+   .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: var(--space-lg) 0;
+      z-index: 50;
+   }
+
+   .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+   }
+
+   .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+   }
+
+   .upcoming-badge {
+      background: rgba(221, 148, 41, 0.1);
+      color: var(--amber);
+      border: 1px solid var(--amber);
+      pointer-events: none;
+      box-shadow: none;
+      animation: pulse-glow 2s ease-out 3 alternate;
+   }
+
+   @keyframes pulse-glow {
+      0% { box-shadow: 0 0 10px rgba(221, 148, 41, 0.2); }
+      100% { box-shadow: 0 0 20px rgba(221, 148, 41, 0.6); }
+   }
+
+   .btn-sm {
+      padding: 10px 24px;
+      font-size: 0.9rem;
+      box-shadow: none;
+   }
+</style>

@@ -1,0 +1,62 @@
+---
+// MassiveCTA.astro
+import WaitlistForm from './WaitlistForm.astro';
+---
+
+<section id="start" class="section massive-cta">
+   <div class="wrapper text-center">
+      <h2 class="h-massive">
+         Nenhum negócio perdido.<br />
+         Nenhum lead <span class="accent-glow">esquecido.</span>
+      </h2>
+      <p class="t-lead">
+         Entre na lista de espera e seja o primeiro a usar o CRM feito para a rotina do corretor autônomo.
+      </p>
+
+      <div class="cta-action reveal delay-1">
+         <WaitlistForm />
+      </div>
+   </div>
+</section>
+
+<style>
+   .massive-cta {
+      padding: 96px 0;
+      position: relative;
+      background: radial-gradient(circle at 50% 100%, rgba(221, 148, 41, 0.08) 0%, var(--bg-deep) 60%);
+   }
+
+   .text-center {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   .massive-cta .t-lead {
+      max-width: 680px;
+      margin: var(--space-xl) 0;
+   }
+
+   .cta-action {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+   }
+
+   .accent-glow {
+      color: var(--amber);
+      position: relative;
+      display: inline-block;
+   }
+
+   .accent-glow::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--amber);
+      filter: blur(60px);
+      opacity: 0.15;
+      z-index: -1;
+   }
+</style>
