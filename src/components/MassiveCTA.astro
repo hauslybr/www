@@ -9,11 +9,6 @@ import WaitlistForm from './WaitlistForm.astro';
          Nenhum negócio perdido.<br />
          Nenhum lead <span class="accent-glow">esquecido.</span>
       </h2>
-      <p class="t-lead">
-         Entre na lista de espera e seja o primeiro a usar o CRM feito para a rotina do corretor autônomo.
-      </p>
-      <p class="cta-urgency">Sem cartão de crédito. Sem compromisso. Sem desculpa.</p>
-
       <div class="cta-action reveal delay-1">
          <WaitlistForm />
       </div>
@@ -34,20 +29,8 @@ import WaitlistForm from './WaitlistForm.astro';
       align-items: center;
    }
 
-   .massive-cta .t-lead {
-      max-width: 680px;
-      margin: var(--space-xl) 0 var(--space-sm);
-   }
-
-   .cta-urgency {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--amber-light, var(--amber));
-      margin-bottom: var(--space-lg);
-      letter-spacing: 0.01em;
-   }
-
    .cta-action {
+      margin-top: var(--space-xl);
       width: 100%;
       display: flex;
       justify-content: center;
