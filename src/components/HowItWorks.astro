@@ -1,30 +1,9 @@
 ---
 const steps = [
-  {
-    num: '01',
-    badge: '15 Segundos',
-    title: 'Cadastrou o Lead',
-    description: 'Nome, telefone e estágio do funil. Direto do celular, entre um plantão e outro.',
-  },
-  {
-    num: '02',
-    badge: 'Automático',
-    title: 'Ação Definida',
-    description: 'O Hausly te obriga a definir o próximo passo. Ligar, mandar mensagem, agendar visita — nenhum lead fica sem ação.',
-  },
-  {
-    num: '03',
-    badge: '1 Clique',
-    title: 'Visita Agendada',
-    description: 'Agende visitas e elas aparecem no seu Google Calendar. Sem digitar nada duas vezes.',
-    gcal: true,
-  },
-  {
-    num: '04',
-    badge: 'Controle Total',
-    title: 'Pipeline na Mão',
-    description: 'Abra o app de manhã e saiba exatamente quem cobrar. Seus leads, seus contatos, suas comissões.',
-  },
+  { num: '01', title: 'Cadastrou o Lead', sub: '15 seg · direto do celular' },
+  { num: '02', title: 'Ação Definida', sub: 'Automático · próximo passo claro' },
+  { num: '03', title: 'Visita Agendada', sub: '1 clique · sincroniza automático', gcal: true },
+  { num: '04', title: 'Pipeline na Mão', sub: 'Controle total · toda manhã' },
 ];
 ---
 
@@ -53,20 +32,12 @@ const steps = [
     <div class="how__grid">
       {steps.map((step, i) => (
         <article class={`how__step reveal reveal-delay-${i + 1}`}>
-          <div class="how__step-header">
-             <div class="how__step-num">{step.num}</div>
-             <span class="how__step-badge">{step.badge}</span>
-          </div>
-          <div class="how__step-content">
-            <h3>{step.title}</h3>
-            <p>{step.description}</p>
-            {step.gcal && (
-              <div class="how__gcal-badge">
-                <img src="/icons/google-calendar.svg" width="14" height="14" alt="" />
-                <span>Google Calendar</span>
-              </div>
-            )}
-          </div>
+          <span class="how__step-num">{step.num}</span>
+          <h3>{step.title}</h3>
+          <span class="how__step-sub">
+            {step.gcal && <img src="/icons/google-calendar.svg" width="13" height="13" alt="" class="how__gcal-icon" />}
+            {step.sub}
+          </span>
           {i < steps.length - 1 && <div class="how__step-connector"></div>}
         </article>
       ))}
@@ -160,78 +131,53 @@ const steps = [
 
   .how__step {
     position: relative;
-    padding: var(--space-lg);
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
     background: var(--navy-800);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-lg);
+    border-top: 2px solid var(--amber);
     transition: transform var(--duration-md), box-shadow var(--duration-md), border-color var(--duration-md);
   }
 
   .how__step:hover {
-     transform: translateY(-4px);
-     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-     border-color: rgba(221, 148, 41, 0.3);
-  }
-
-  .how__step-header {
-     display: flex;
-     justify-content: space-between;
-     align-items: flex-start;
-     margin-bottom: var(--space-lg);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    border-color: rgba(221, 148, 41, 0.3);
+    border-top-color: var(--amber);
   }
 
   .how__step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     font-family: var(--font-display);
-    font-size: 2.5rem;
-    line-height: 1;
+    font-size: 0.85rem;
+    font-weight: 700;
     color: var(--amber);
-    opacity: 0.9;
-  }
-
-  .how__step-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    background: rgba(221, 148, 41, 0.1);
-    border: 1px solid rgba(221, 148, 41, 0.2);
-    border-radius: var(--radius-full);
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--amber-light);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-md);
   }
 
   .how__step h3 {
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--text-pure);
-    margin-bottom: var(--space-sm);
+    margin-bottom: 8px;
     line-height: 1.3;
   }
 
-  .how__step p {
-    font-size: 14px;
-    color: var(--slate-300);
-    line-height: 1.6;
-  }
-
-  .how__gcal-badge {
-    display: inline-flex;
+  .how__step-sub {
+    display: flex;
     align-items: center;
     gap: 6px;
-    margin-top: 12px;
-    padding: 4px 12px;
-    background: rgba(26, 115, 232, 0.1);
-    border: 1px solid rgba(26, 115, 232, 0.2);
-    border-radius: var(--radius-full);
-    font-size: 12px;
-    font-weight: 700;
-    color: #8ab4f8;
-    letter-spacing: 0.02em;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--slate-400, var(--slate-300));
+    letter-spacing: 0.01em;
+  }
+
+  .how__gcal-icon {
+    flex-shrink: 0;
   }
 
   .how__step-connector {
@@ -240,7 +186,7 @@ const steps = [
     right: -48px;
     width: 48px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
     z-index: 10;
     transform: translateY(-50%);
   }
@@ -250,10 +196,10 @@ const steps = [
     position: absolute;
     right: 0;
     top: -4px;
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid var(--amber);
-    border-top: 2px solid var(--amber);
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid var(--amber);
+    border-top: 1.5px solid var(--amber);
     transform: rotate(45deg);
   }
 
