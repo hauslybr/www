@@ -9,11 +9,13 @@ const plans = [
       'Até 25 leads ativos (sempre grátis)',
       'Pipeline visual de vendas',
       'Gestão de próximas ações',
+      'Integração Google Calendar',
       'Cadastro em 15 segundos',
       '100% focado no mobile',
     ],
     cta: 'Começar Grátis',
-    popular: false,
+    popular: true,
+    badge: 'Comece grátis',
   },
   {
     name: 'Hausly Pro',
@@ -28,7 +30,7 @@ const plans = [
       'Crie sua própria carteira',
     ],
     cta: 'Assinar Pro',
-    popular: true,
+    popular: false,
     anchor: 'Mais barato que uma pizza por mês',
   },
 ];
@@ -45,7 +47,7 @@ const plans = [
     <div class="pricing__grid">
       {plans.map((plan, i) => (
         <article class={`pricing__card ${plan.popular ? 'pricing__card--popular' : ''} reveal reveal-delay-${i + 1}`}>
-          {plan.popular && <div class="pricing__badge">Mais popular</div>}
+          {plan.badge && <div class="pricing__badge">{plan.badge}</div>}
           <div class="pricing__card-header">
             <h3>{plan.name}</h3>
             <div class="pricing__price">
